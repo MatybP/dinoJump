@@ -1,0 +1,622 @@
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
+
+body {
+    font-family: 'Public Pixel', sans-serif;
+    margin: 0;
+    background: #F7F7F7;
+}
+
+:root {
+    scroll-behavior: smooth;
+}
+
+#gameContent {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0%;
+}
+
+#sky {
+    z-index: -4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0.5;
+    background-image: url(img/sky.png);
+    background-size: cover;
+}
+
+/***NUBES***/
+#cloudContent{
+    z-index: -3;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    opacity: 0.5;
+}
+
+#cloud {
+    position: absolute;
+    opacity: 0.7;
+} 
+
+#cloud.mov{
+    transition: transform 15s linear;
+    -webkit-transition: transform 15s linear;
+    -moz-transition: transform 15s linear;
+    -ms-transition: transform 15s linear;
+    -o-transition: transform 15s linear;
+}
+
+#cloud.stop{
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+/***SUELO***/
+#ground {
+    z-index: -2;
+    width: 100%;
+    height: 6.1rem;
+    position: absolute;
+    margin-top: 10.7rem;
+    background-image: url(img/ground_1.png);
+    background-repeat: repeat-x;
+}
+/***OBSTACULOS***/
+.obstacle {
+    z-index: -1;
+    position: absolute;
+    margin-top: 3rem;
+    transition: transform 1s linear;
+    -webkit-transition: transform 1s linear;
+    -moz-transition: transform 1s linear;
+    -ms-transition: transform 1s linear;
+    -o-transition: transform 1s linear;
+}
+/***SOMBRA DEL JUGADOR***/
+#playerShadow {
+    z-index: -1;
+    width: 3.5rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 0%;
+    margin-left: 8.3rem;
+    margin-top: 8.6rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+}
+
+#playerShadow.jump {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+}
+/***JUGADOR***/
+#player {
+    margin-left: 7.3rem;
+    z-index: 0;
+    width: 5.55rem;
+    height: 6.37rem;
+    left: 0%;
+    position: absolute;
+    margin-top: 2.2rem;
+    transition: transform 0.4s ease-in-out;
+}
+
+#player.one.run{
+    background-image: url(img/dinoRun_1.png);
+    animation: playerRun 0.6s steps(6) infinite;
+    -webkit-animation: playerRun 0.6s steps(6) infinite;
+}
+
+#player.one.default {
+    background-image: url(img/dinoDefault_1.png);
+    animation: playerDefault 0.5s steps(4) infinite;
+    -webkit-animation: playerDefault 0.5s steps(4) infinite;
+}
+#player.one.jump {
+    background-image: url(img/dinoRun_1.png);
+    animation: playerJump 0.5s infinite;
+    -webkit-animation: playerJump 0.5s infinite;
+}
+#player.one.hurt {
+    height: 6.7rem;
+    background-image: url(img/dinoHurt_1.png);
+    animation: playerHurt 0.2s steps(4);
+    transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+    -webkit-animation: playerHurt 0.2s steps(4);
+    -webkit-transition: transform 0.1s linear;
+}
+#player.two.run{
+    background-image: url(img/dinoRun_2.png);
+    animation: playerRun 0.6s steps(6) infinite;
+    -webkit-animation: playerRun 0.6s steps(6) infinite;
+}
+
+#player.two.default {
+    background-image: url(img/dinoDefault_2.png);
+    animation: playerDefault 0.5s steps(4) infinite;
+    -webkit-animation: playerDefault 0.5s steps(4) infinite;
+}
+
+#player.two.jump {
+    background-image: url(img/dinoRun_2.png);
+    animation: playerJump 0.5s steps(4) infinite;
+    -webkit-animation: playerJump 0.5s steps(4) infinite;
+}
+
+#player.two.hurt {
+    height: 6.7rem;
+    background-image: url(img/dinoHurt_2.png);
+    animation: playerHurt 0.2s steps(4);
+    -webkit-animation: playerHurt 0.2s steps(4);
+    transition: transform 0.1s linear;
+    -webkit-transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;   
+}
+#player.three.run{
+    background-image: url(img/dinoRun_3.png);
+    animation: playerRun 0.6s steps(6) infinite;
+    -webkit-animation: playerRun 0.6s steps(6) infinite;
+}
+
+#player.three.default {
+    background-image: url(img/dinoDefault_3.png);
+    animation: playerDefault 0.5s steps(4) infinite;
+    -webkit-animation: playerDefault 0.5s steps(4) infinite;
+}
+
+#player.three.jump {
+    background-image: url(img/dinoRun_3.png);
+    animation: playerJump 0.5s;
+    -webkit-animation: playerJump 0.5s;
+}
+
+#player.three.hurt {
+    height: 6.7rem;
+    background-image: url(img/dinoHurt_3.png);
+    animation: playerHurt 0.2s steps(4);
+    -webkit-animation: playerHurt 0.2s steps(4);
+    transition: transform 0.1s linear;
+    -webkit-transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+}#player.three.run{
+    background-image: url(img/dinoRun_3.png);
+    animation: playerRun 0.6s steps(6) infinite;
+    -webkit-animation: playerRun 0.6s steps(6) infinite;
+}
+
+#player.three.default {
+    background-image: url(img/dinoDefault_3.png);
+    animation: playerDefault 0.5s steps(4) infinite;
+    -webkit-animation: playerDefault 0.5s steps(4) infinite;
+}
+
+#player.three.jump {
+    background-image: url(img/dinoRun_3.png);
+    animation: playerJump 0.5s;
+    -webkit-animation: playerJump 0.5s;
+}
+
+#player.three.hurt {
+    height: 6.7rem;
+    background-image: url(img/dinoHurt_3.png);
+    animation: playerHurt 0.2s steps(4);
+    -webkit-animation: playerHurt 0.2s steps(4);
+    transition: transform 0.1s linear;
+    -webkit-transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+}
+#player.four.run{
+    background-image: url(img/dinoRun_4.png);
+    animation: playerRun 0.6s steps(6) infinite;
+    -webkit-animation: playerRun 0.6s steps(6) infinite;
+}
+
+#player.four.default {
+    background-image: url(img/dinoDefault_4.png);
+    animation: playerDefault 0.5s steps(4) infinite;
+    -webkit-animation: playerDefault 0.5s steps(4) infinite;
+}
+
+#player.four.jump {
+    background-image: url(img/dinoRun_4.png);
+    animation: playerJump 0.5s;
+    -webkit-animation: playerJump 0.5s;
+}
+
+#player.four.hurt {
+    height: 6.7rem;
+    background-image: url(img/dinoHurt_4.png);
+    animation: playerHurt 0.2s steps(4);
+    -webkit-animation: playerHurt 0.2s steps(4);
+    transition: transform 0.1s linear;
+    -webkit-transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+}
+@keyframes playerRun {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -540px 0;
+    }
+}
+
+@keyframes playerDefault {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -360px 0;
+    }
+}
+
+@keyframes playerJump {
+    from {
+        background-position: -360px 0;
+    }
+
+    to {
+        background-position: -360px 0;
+    }
+}
+
+@keyframes playerHurt {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -360px 0;
+    }
+}
+/***MARCADOR***/
+#scoreboard {
+    position: absolute;
+    right: 0%;
+    margin-right: 2.5vw;
+    margin-bottom: 83vh;
+    font-size: 1.5rem;
+    text-align: right;
+    color: #1D0028;
+    z-index: 1;
+}
+/***VERSION***/
+#version {
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    position: absolute;
+    right: 0%;
+    margin-right: 2.5vw;
+    margin-bottom: 65vh;
+    font-size: 1rem;
+    color: #1D0028;
+    opacity: 0.5;
+}
+#buttonImprovement {
+    margin-left: 25%;
+    background: transparent;
+    border-width: 0;
+    border-radius: 3vw;
+    -webkit-border-radius: 3vw;
+    -moz-border-radius: 3vw;
+    -ms-border-radius: 3vw;
+    -o-border-radius: 3vw;
+}
+/***SELECCION DE PERSONAJE***/
+#contentSelectCharacter {
+    z-index: 4;
+    width: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    border-radius: 3vw;
+    -webkit-border-radius: 3vw;
+    -moz-border-radius: 3vw;
+    -ms-border-radius: 3vw;
+    -o-border-radius: 3vw;
+}
+#contentButton {
+    padding: 0%;
+    margin: 1%;
+}
+.buttonCharacter {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: transparent;
+    background-position: 0 0;
+    border-width: 0vw;
+    border-radius: 2vw;
+    -webkit-border-radius: 2vw;
+    -moz-border-radius: 2vw;
+    -ms-border-radius: 2vw;
+    -o-border-radius: 2vw;
+}
+.buttonCharacter.one {
+    background-image: url(img/buttons.png);
+    background-position: 0 0;
+}
+.buttonCharacter.two {
+    background-image: url(img/buttons.png);
+    background-position: -224px 0;
+}
+.buttonCharacter.two.unlocked {
+    background-position: -56px 0;
+}
+.buttonCharacter.three {
+    background-image: url(img/buttons.png);
+    background-position: -224px 0;
+}
+.buttonCharacter.three.unlocked {
+    background-position: -112px 0;
+}
+.buttonCharacter.four {
+    background-image: url(img/buttons.png);
+    background-position: -224px 0;
+}
+.buttonCharacter.four.unlocked {
+    background-position: -168px 0;
+}
+.buttonCharacter.five {
+    background-image: url(img/buttons.png);
+    background-position: -224px 0;
+}
+.buttonCharacter.mov {
+    scale: 1;
+    animation: movbuttonCharacter 1s;
+    -webkit-animation: movbuttonCharacter 1s;
+}
+@keyframes movbuttonCharacter {
+    0% {
+        scale: 1;
+        rotate: 0deg;
+    }
+    10% {
+        scale: 0.8;
+        rotate: -15deg;
+    }
+    20% {
+        scale: 0.7;
+        rotate: -18deg;
+    }
+    35% {
+        scale: 0.8;
+        rotate: -20deg;
+    }
+    60%{
+        scale: 1.15;
+        rotate: 765deg;
+    }
+    100% {
+        scale: 1;
+        rotate: 720deg;
+    }
+}
+#effectSelectCharacter {
+    z-index: 1;
+    width: 4rem;
+    height: 4rem;
+    transform:scale(1); 
+    visibility: hidden;
+    position: absolute;
+    background: transparent;
+    -webkit-transform:scale(1);
+    -moz-transform:scale(1);
+    -ms-transform:scale(1);
+    -o-transform:scale(1);
+    transition: transform 1s ease-in-out;
+    -webkit-transition: transform 1s ease-in-out;
+    -moz-transition: transform 1s ease-in-out;
+    -ms-transition: transform 1s ease-in-out;
+    -o-transition: transform 1s ease-in-out;
+    border: solid;
+    border-color: #9EBC4D;
+    border-width: 70vw;
+    border-radius: 75vw;
+    -webkit-border-radius: 75vw;
+    -moz-border-radius: 75vw;
+    -ms-border-radius: 75vw;
+    -o-border-radius: 75vw;
+}
+#effectSelectCharacter.mov{
+    animation: moveffectSelectCharacter 1s;
+    -webkit-animation: moveffectSelectCharacter 1s;
+}
+@keyframes moveffectSelectCharacter {
+    0% {
+        transform:scale(1);
+        border-width: 0vw;
+        visibility: visible;
+}
+    50%{
+        transform:scale(1);
+        border-width: 70vw;
+
+}
+
+    100% {
+        transform:scale(115);
+        border-width: 0vw;
+        visibility: visible;
+    }
+}
+/***PANTALLA PRINCIPAL***/
+#mainScreen {
+    z-index: 3;
+    display: flex;
+    width: 40rem;
+    height: 13rem;
+    border-radius: 3vw;
+    position: relative;
+    overflow: hidden;
+}
+#contentScreen {
+    width: 40rem;
+    height: 13rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    border-radius: 3vw;
+    -webkit-border-radius: 3vw;
+    -moz-border-radius: 3vw;
+    -ms-border-radius: 3vw;
+    -o-border-radius: 3vw;
+}
+#contentScreen.show {
+    transform: translateY(105%);
+    -webkit-transform: translateY(105%);
+    -moz-transform: translateY(105%);
+    -ms-transform: translateY(105%);
+    -o-transform: translateY(105%);
+}
+#tittle {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+}
+#contentCurrentScore {
+    width: 100%;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+#contentMaxScore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+}
+#buttonResetScore {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+#contentImprovements {
+    transform: translateY(-105%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: white;
+    overflow: hidden;
+    border-radius: 3vw;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+#contentImprovements.show {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+}
+.improvements {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 3vw;
+    -webkit-border-radius: 3vw;
+    -moz-border-radius: 3vw;
+    -ms-border-radius: 3vw;
+    -o-border-radius: 3vw;
+}
+.improvements::-webkit-scrollbar {
+    width: 0.6rem; /* Ancho de la barra de desplazamiento */
+}
+.improvements::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 5px; /* Radio de borde del pulgar */
+}
+.improvements::-webkit-scrollbar-track {
+    background-color:rgba(0, 0, 0, 0.75); /* Color del riel de la barra de desplazamiento */
+}
+h3 {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 3.5%;
+    font-size: 1rem;
+}
+h2 {
+    margin: 0;
+}
+p {
+    margin: 0.5rem;
+    text-align: center;
+}
+ol {
+    margin: 0%;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 0.8rem;
+}
+li {
+    margin-bottom: 2%;
+}

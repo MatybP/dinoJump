@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DinoJump</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContent">
+        <div id="game">
+            <div id="sky"></div>
+            <div id="cloudContent">
+                <div id="cloud" class="mov" style="width: 507px; transform: matrix(1, 0, 0, 1, -1273.43, 0); height: 253px; background-image: url(&quot;img/cloud_2.png&quot;); margin-top: 2.53202rem; transition-duration: 0.147841s;"></div>
+                <div id="cloud" class="mov" style="width: 588px; transform: matrix(1, 0, 0, 1, -977.592, 0); height: 296px; background-image: url(&quot;img/cloud_4.png&quot;); margin-top: 3.90968rem; transition-duration: 1.55188s;"></div>
+                <div id="cloud" class="mov" style="width: 588px; transform: matrix(1, 0, 0, 1, -684.585, 0); height: 296px; background-image: url(&quot;img/cloud_4.png&quot;); margin-top: 17.196rem; transition-duration: 2.94252s;"></div>
+                <div id="cloud" class="mov" style="width: 588px; transform: matrix(1, 0, 0, 1, -385.908, 0); height: 296px; background-image: url(&quot;img/cloud_4.png&quot;); margin-top: 2.59055rem; transition-duration: 4.36007s;"></div>
+                <div id="cloud" class="mov" style="width: 507px; transform: matrix(1, 0, 0, 1, -65.7351, 0); height: 253px; background-image: url(&quot;img/cloud_2.png&quot;); margin-top: 15.9837rem; transition-duration: 5.87964s;"></div>
+                <div id="cloud" class="mov" style="width: 447px;transform: matrix(1, 0, 0, 1, 262.975, 0);height: 203px;background-image: url(&quot;img/cloud_3.png&quot;);margin-top: 12.21572rem;transition-duration: 7.43973s;"></div>
+                <div id="cloud" class="mov" style="width: 714px; transform: matrix(1, 0, 0, 1, 591.682, 0); height: 360px; background-image: url(&quot;img/cloud_1.png&quot;); margin-top: 8.76863rem; transition-duration: 8.9998s;"></div>
+                <div id="cloud" class="mov" style="width: 714px; transform: matrix(1, 0, 0, 1, 920.403, 0); height: 360px; background-image: url(&quot;img/cloud_1.png&quot;); margin-top: 3.70247rem; transition-duration: 10.5599s;"></div>
+                <div id="cloud" class="mov" style="width: 447px; transform: matrix(1, 0, 0, 1, 1262.44, 0); height: 203px; background-image: url(&quot;img/cloud_3.png&quot;); margin-top: 2.24983rem; transition-duration: 12.15s;"></div>
+            </div>
+            <div id="ground"></div>
+            <div id="playerShadow"></div>
+            <div id="player" class="one default"></div>
+            <div id="scoreboard">0000000</div>
+            <div id="version">
+                <h3>v.1</h3>
+                <button id="buttonImprovement" onclick="clickButtonImprovement()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M17.2117 2.23726C17.3427 1.84432 17.1304 1.41955 16.7375 1.28851C16.3445 1.15747 15.9198 1.36978 15.7887 1.76272L15.0387 4.01171C14.9077 4.40465 15.12 4.82941 15.5129 4.96045C15.9059 5.09149 16.3306 4.87918 16.4617 4.48624L17.2117 2.23726ZM21.7803 2.21967C22.0732 2.51256 22.0732 2.98744 21.7803 3.28033L19.2803 5.78033C18.9874 6.07322 18.5126 6.07322 18.2197 5.78033C17.9268 5.48744 17.9268 5.01256 18.2197 4.71967L20.7197 2.21967C21.0126 1.92678 21.4874 1.92678 21.7803 2.21967ZM12.8706 3.74087C11.7547 2.54545 9.78611 2.84497 9.07629 4.31816L3.17848 16.5588C2.83795 17.2655 2.99437 18.1114 3.56513 18.6497L5.00386 20.0065C5.53118 20.5037 6.30531 20.6362 6.96799 20.3426L8.38545 19.7146C9.0275 21.0658 10.4048 22 12.0003 22C14.2095 22 16.0003 20.2091 16.0003 18C16.0003 17.4597 15.8932 16.9445 15.6991 16.4743L19.119 14.9591C20.5809 14.3115 20.9679 12.4157 19.8769 11.2469L12.8706 3.74087ZM14.3266 17.0824C14.4387 17.3665 14.5003 17.6761 14.5003 18C14.5003 19.3807 13.3811 20.5 12.0003 20.5C11.0169 20.5 10.1662 19.9322 9.75795 19.1066L14.3266 17.0824ZM19 8.24927C19 7.83505 19.3358 7.49927 19.75 7.49927H21.75C22.1642 7.49927 22.5 7.83505 22.5 8.24927C22.5 8.66348 22.1642 8.99927 21.75 8.99927H19.75C19.3358 8.99927 19 8.66348 19 8.24927Z" fill="#1D0028"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="contentSelectCharacter">
+                <div id="contentButton">
+                    <button class="buttonCharacter one" onclick="buttonCharacterOne()"></button>
+                </div>
+                <div id="contentButton">
+                    <button class="buttonCharacter two" onclick="buttonCharacterTwo()"></button>
+                </div>
+                <div id="contentButton">
+                    <button class="buttonCharacter three" onclick="buttonCharacterThree()"></button>
+                </div>
+                <div id="contentButton">
+                    <button class="buttonCharacter four" onclick="buttonCharacterFour()"></button>
+                </div>
+                <div id="contentButton">
+                    <button class="buttonCharacter five"></button>
+                </div>
+                <div id="effectSelectCharacter"></div>
+            </div>
+            <div id="mainScreen">
+                <div id="contentScreen">
+                    <div id="tittle">Welcome</div>
+                    <p>Press the 'space key' to start</p>
+                    <div id="contentCurrentScore">
+                        Current score: <span id="currentScore">0</span>
+                    </div>
+                    <div id="contentMaxScore">
+                        Highest score: <span id="maxScore">0</span>
+                        <svg id="buttonResetScore" viewBox="0,0,256,256" width="128px" height="128px" fill-rule="nonzero">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <g transform="scale(3.55556,3.55556)">
+                                    <path d="M34.09961,7.00195c-1.07001,-0.0562 -2.09961,0.77673 -2.09961,1.99023v3.34766c-11.33513,1.91057 -20,11.78941 -20,23.66016c0,13.234 10.767,24 24,24c13.233,0 24,-10.766 24,-24c0,-5.67 -2.01488,-11.17214 -5.67187,-15.49414c-1.43,-1.687 -3.95372,-1.8997 -5.63672,-0.4707c-1.687,1.427 -1.8977,3.95167 -0.4707,5.63867c2.437,2.879 3.7793,6.54617 3.7793,10.32617c0,8.822 -7.178,16 -16,16c-8.822,0 -16,-7.178 -16,-16c0,-7.43861 5.11088,-13.68922 12,-15.47266v2.47852c0,1.619 1.82948,2.56014 3.14648,1.61914l9.80469,-7.00781c1.11,-0.793 1.11,-2.44333 0,-3.23633l-9.80469,-7.00781c-0.32925,-0.23525 -0.6902,-0.35236 -1.04687,-0.37109z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div id="contentImprovements">
+                    <div class="improvements">
+                        <h3>Next improvements</h3>
+                        <ol>
+                            <li>Animate buttons</li>
+                            <li>Animate character change</li>
+                            <li>Animate stage background</li>
+                            <li>Add more variety of obstacles</li>
+                            <li>Optimize movement of obstacles</li>
+                            <li>Add more variety of terrain</li>
+                            <li>Optimize ground movement</li>
+                            <li>Add skills to characters</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="sound" src="sound/yahoo.mp3"></audio>
+    <script src="functions.js"></script>
+</body>
+</html>
